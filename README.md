@@ -1,12 +1,7 @@
-# 🧠 AI-Driven Ecommerce Pipeline (Supabase + Vite)
+# 🧠 AI-Driven Ecommerce Pipeline (Supabase + Vite + Prometheus)
 
-This repository contains a full-stack demo of an **AI-driven ecommerce pipeline** built with:
-
-- **Vite + React + TypeScript** for the frontend
-- **Supabase (Postgres, Auth, Storage)** as the backend
-- Optional **AI / LLM integration** for recommendations, insights, or automation
-
-The goal of this project is to show how you can connect a modern ecommerce frontend to a data-driven, AI-powered backend pipeline using Supabase.
+This repository contains a full-stack demo of an **AI-driven ecommerce pipeline** with integrated **observability and monitoring**.  
+The project showcases a modern frontend backed by **Supabase**, extended with **AI features**, and monitored using **Prometheus**.
 
 ---
 
@@ -14,67 +9,60 @@ The goal of this project is to show how you can connect a modern ecommerce front
 
 ### Storefront
 
-- Product listing page powered by **Supabase** data
-- Product detail views (price, description, metadata, etc.)
-- Basic filtering / sorting (e.g., by category, price, etc. — depending on your implementation)
-- Responsive UI with **Tailwind CSS**
+- Product listing & detail pages powered by **Supabase**
+- Responsive, fast UI built with **Vite + React + TypeScript**
+- Tailwind CSS for styling and layout
+- Authentication and user management (via Supabase)
 
-### AI-Driven Pipeline (Conceptual)
+### AI-Driven Pipeline
 
-The project is structured to support an AI-driven pipeline for ecommerce use cases such as:
+- AI-assisted product improvements and personalization
+- Support for adding product recommendations, automated descriptions, or trend analysis
+- Framework ready for integration with any LLM provider (OpenAI, Anthropic, etc.)
 
-- 🔍 **Search & recommendations** (e.g., “you may also like” style suggestions)
-- 📈 **Demand or trend analysis**
-- 🧾 **Smart content** (e.g., AI-generated descriptions, tags, or summaries)
-- 🧠 **Personalization** based on user behavior (browsing or purchase history)
+### 📊 Monitoring & Metrics (Prometheus)
 
-> The exact AI features depend on how you wire up your models / LLM provider in the codebase.  
-> This repo focuses on the **plumbing + data layer** so you can experiment with different AI flows.
+The project includes **Prometheus** for application monitoring and pipeline visibility:
 
-### Developer Experience
+- Collects custom metrics such as API usage, request performance, and system health
+- Enables performance optimization for ecommerce workloads
+- Supports future **Grafana dashboards** for visualization
+- Helps monitor AI inference load, latency, and failure rates (if added)
 
-- ⚡ **Vite** dev server with fast HMR
-- ✅ **TypeScript** for type-safe development
-- 🎨 **Tailwind CSS** for utility-first styling
-- 🔐 **Supabase Auth** (email / password / social, depending on configuration)
-- Organized `src/` folder with reusable components and hooks
+> Prometheus configuration and metrics endpoints can be found inside the backend or middleware layer of the project (depending on setup).
 
 ---
 
 ## 🧱 Tech Stack
 
 - **Frontend**
-  - [Vite](https://vitejs.dev/)
-  - [React](https://react.dev/) (assuming React based on Vite + TS setup)
-  - [TypeScript](https://www.typescriptlang.org/)
-  - [Tailwind CSS](https://tailwindcss.com/)
+  - Vite + React + TypeScript
+  - Tailwind CSS
 
 - **Backend / Data**
-  - [Supabase](https://supabase.com/) (Postgres, Auth, APIs)
-  - Supabase SQL / migrations (in the `supabase/` directory)
+  - Supabase (Postgres, Auth, Storage)
+
+- **Monitoring / Observability**
+  - Prometheus
+  - Optional support for Grafana dashboards
 
 - **Tooling**
-  - ESLint (`eslint.config.js`)
-  - PostCSS (`postcss.config.js`)
-  - Vite config (`vite.config.ts`)
+  - ESLint, PostCSS, Vite config, environment variables in `.env`
 
 ---
 
 ## 📂 Project Structure
 
-At a high level:
-
 ```text
 .
-├── public/              # Static assets
-├── src/                 # Frontend source code (React + TS)
-│   ├── components/      # Reusable UI components
-│   ├── pages/           # Top-level views / routes (if applicable)
-│   ├── hooks/           # Custom hooks (e.g. Supabase, AI, etc.)
-│   └── main.tsx         # App entry point
-├── supabase/            # Supabase config, migrations, etc.
-├── .env                 # Environment variables (DO NOT commit secrets in real projects)
-├── index.html           # Vite HTML template
-├── package.json         # Scripts & dependencies
-├── vite.config.ts       # Vite configuration
-└── tailwind.config.ts   # Tailwind configuration
+├── src/                     # Frontend files
+│   ├── components/          
+│   ├── pages/
+│   ├── hooks/
+│   └── main.tsx
+├── supabase/                # Database config and migrations
+├── prometheus/              # Prometheus monitoring config (if applicable)
+├── public/                 
+├── .env
+├── package.json
+└── vite.config.ts
